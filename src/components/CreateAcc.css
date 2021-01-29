@@ -1,0 +1,113 @@
+.ca-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.ca-card {
+  width: 39%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: caload 1s;
+}
+@keyframes caload {
+  0% {
+    top: 49%;
+    opacity: 0.7;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+.ca-card h2 {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 30px;
+  letter-spacing: 0.1px;
+}
+
+.ca-card p {
+  margin-top: 8px;
+}
+.ca-link {
+  color: rgb(151, 0, 252);
+}
+.ac-create-form {
+  width: 80%;
+  height: 80%;
+}
+.ac-create-form input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: 0.2px solid grey;
+  transition: all 0.1s ease-in;
+}
+
+.ac-create-form input:focus {
+  outline: none;
+  outline: 1px solid black;
+}
+.ac-create-form h3 {
+  display: inline-block;
+  margin-top: 40px;
+  font-family: Montserrat;
+  font-weight: 400;
+}
+.ac-create-form button {
+  margin-top: 40px;
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  background: rgba(132, 0, 255, 0.993);
+  color: white;
+  font-family: Montserrat;
+  font-size: 18px;
+  letter-spacing: 0.05px;
+  font-weight: 600;
+}
+.ac-show-pass-wrap {
+  width: 50%;
+  height: 45px;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ac-show-pass-wrap input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  transform: translateX(calc(-50% + 7px));
+}
+
+.ac-show-pass-wrap span {
+  margin-left: 5px;
+  font-family: Montserrat;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.mismatch-pass-msg {
+  display: inline-block;
+  color: #ff0000;
+  margin-left: 10px;
+  font-family: Oswald;
+  transform: translate(10px, -3px);
+}

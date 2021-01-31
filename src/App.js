@@ -5,38 +5,30 @@ import Details from "./pages/Details";
 import LoginReg from "./pages/LoginReg";
 import NavBar from "./components/Navbar";
 import Tracker from "./pages/Tracker";
-import { UserProvider } from "./UserContext";
 function App() {
+  sessionStorage.setItem("auth", "false");
+  sessionStorage.setItem("userId", "");
   return (
     <div className="App">
       <Router>
         <Switch>
           <Route exact path="/">
-            <UserProvider>
-              <NavBar />
-            </UserProvider>
+            <NavBar />
             <Home />
           </Route>
           <Route exact path="/details">
-            <UserProvider>
-              <NavBar />
-            </UserProvider>
+            <NavBar />
             <Details />
           </Route>
           <Route exact path="/login-reg">
-            <UserProvider>
-              <LoginReg toggleCreate={false} />
-            </UserProvider>
+            <LoginReg toggleCreate={false} />
           </Route>
           <Route exact path="/login-reg/create">
-            <UserProvider>
-              <LoginReg toggleCreate={true} />
-            </UserProvider>
+            <LoginReg toggleCreate={true} />
           </Route>
           <Route exact path="/your-tracker">
-            <UserProvider>
-              <Tracker />
-            </UserProvider>
+            <NavBar />
+            <Tracker />
           </Route>
         </Switch>
       </Router>

@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { NavLink, useLocation } from "react-router-dom";
-import { UserContext } from "../UserContext";
 function Navbar() {
-  const [loggedIn, setLoggedIn] = useContext(UserContext);
+  console.log(sessionStorage.getItem("auth") === "true");
   const [homeBorder, setHomeBorder] = useState(false);
   const [productsBorder, setProductsBorder] = useState(false);
-  const [detailsBorder, setDetailsBorder] = useState(false);
+  const [trackerBorder, setTrackerBorder] = useState(false);
   const [mobileClicked, setMobileClicked] = useState(false);
   const route = useLocation().pathname;
   useEffect(() => {
@@ -14,20 +13,20 @@ function Navbar() {
   }, [route]);
   const checkRoute = () => {
     switch (route) {
-      case "/your-products":
+      case "/your-tracker":
         setHomeBorder(false);
         setProductsBorder(true);
-        setDetailsBorder(false);
+        setTrackerBorder(false);
         break;
       case "/details":
         setHomeBorder(false);
         setProductsBorder(false);
-        setDetailsBorder(true);
+        setTrackerBorder(true);
         break;
       default:
         setHomeBorder(true);
         setProductsBorder(false);
-        setDetailsBorder(false);
+        setTrackerBorder(false);
     }
   };
   window.addEventListener("resize", () => {
@@ -43,7 +42,7 @@ function Navbar() {
             HOME
           </NavLink>
         </li>
-        <li className={detailsBorder ? "nb-link-border nb-item" : "nb-item"}>
+        <li className={trackerBorder ? "nb-link-border nb-item" : "nb-item"}>
           <NavLink className="nb-link" to="/details">
             DETAILS
           </NavLink>
@@ -51,7 +50,11 @@ function Navbar() {
         <li className={productsBorder ? "nb-link-border nb-item" : "nb-item"}>
           <NavLink
             className="nb-link"
-            to={loggedIn ? "/your-tracker" : "/login-reg"}
+            to={
+              sessionStorage.getItem("auth") === "true"
+                ? "/your-tracker"
+                : "/login-reg"
+            }
           >
             YOUR TRACKER
           </NavLink>

@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Hero.css";
 import HeroButton from "./HeroButton";
 import { Link } from "react-router-dom";
-import { UserContext } from "../UserContext";
 import MainTitle from "./MainTitle";
 function Hero() {
-  const [loggedIn, setLoggedIn] = useContext(UserContext);
   return (
     <div className="hero-container">
       <MainTitle />
@@ -15,8 +13,14 @@ function Hero() {
           ViteTracker tracks the prices of your favorite products and updates
           you in real time
         </h3>
-
-        <Link className="hb-link" to={loggedIn ? "/" : "/login-reg/create"}>
+        <Link
+          className="hb-link"
+          to={
+            sessionStorage.getItem("auth") === "true"
+              ? "/your-tracker"
+              : "/login-reg/create"
+          }
+        >
           <HeroButton text="GET STARTED" width="180px" />
         </Link>
         <Link className="hb-link" to="/details">

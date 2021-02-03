@@ -21,11 +21,26 @@ function LoginCard() {
       .then((resp) => {
         return resp.json();
       })
-      .then((json) => {
+      .then(async (json) => {
         if (json.status === "valid") {
-          setValid(true);
           sessionStorage.setItem("userId", json._id);
           sessionStorage.setItem("auth", true);
+          const resp = await fetch("http://localhost:5001/amazon/list", {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              _id: json._id,
+            }),
+          }).then((response) => {
+            return response.json();
+          });
+          sessionStorage.setItem(
+            "amazon-list",
+            JSON.stringify({ amazonList: resp.amazon })
+          );
+          setValid(true);
+        } else {
+          // set error state
         }
       });
   };

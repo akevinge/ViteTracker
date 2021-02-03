@@ -6,8 +6,6 @@ import LoginReg from "./pages/LoginReg";
 import NavBar from "./components/Navbar";
 import Tracker from "./pages/Tracker";
 function App() {
-  sessionStorage.setItem("auth", "false");
-  sessionStorage.setItem("userId", "");
   return (
     <div className="App">
       <Router>

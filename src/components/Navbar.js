@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { NavLink, useLocation } from "react-router-dom";
 function Navbar() {
-  console.log(sessionStorage.getItem("auth") === "true");
   const [homeBorder, setHomeBorder] = useState(false);
   const [productsBorder, setProductsBorder] = useState(false);
   const [trackerBorder, setTrackerBorder] = useState(false);

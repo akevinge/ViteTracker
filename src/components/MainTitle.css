@@ -1,12 +1,17 @@
 .hero-main-wrap {
-  margin: 0 20px 0 20px;
+  margin-top: 20px;
+  margin-left: 20px;
   position: absolute;
   z-index: 2;
 }
 .hero-main-wrap h3 {
-  color: white;
-  font-size: 3rem;
-  font-family: Oswald, Arial, Helvetica, sans-serif;
-  font-family: 300;
-  letter-spacing: 0.3rem;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #52c8cf;
 }

@@ -1,30 +1,41 @@
-/* Oswald 200, 500 */
 .hero-container {
   width: 100%;
-  height: 100%;
-  background: url("../images/herobg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #3232e2 0%,
+    rgba(50, 50, 226, 0.76) 71.77%,
+    rgba(50, 50, 226, 0.61) 100%
+  );
 }
 
 .hero-txt-wrap {
-  position: absolute;
+  position: relative;
   top: 35%;
   left: 8%;
 }
 .hero-txt-wrap h1 {
-  font-size: 4.3rem;
-  font-family: Oswald, Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  color: white;
+  width: 53%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  color: #99fce4;
 }
-.hero-txt-wrap h3 {
-  font-size: 1.5rem;
-  font-family: Oswald, Arial, Helvetica, sans-serif;
-  margin-top: 5px;
-  font-weight: 300;
-  color: white;
-}
+
 .hb-link {
   text-decoration: none;
+}
+
+.hero-button-wrap {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 950px) {
+  .hero-txt-wrap h1 {
+    font-size: 45px;
+  }
 }

@@ -1,13 +1,12 @@
 import React from "react";
 import Hero from "../components/Hero";
-import { UserProvider } from "../UserContext";
+import Details from "../components/Details";
 
 function Home() {
   return (
     <div className="home-container">
-      <UserProvider>
-        <Hero />
-      </UserProvider>
+      <Hero />
+      <Details />
     </div>
   );
 }

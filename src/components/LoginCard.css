@@ -43,8 +43,6 @@
 .lc-login-form {
   width: 80%;
   height: 80%;
-  display: flex;
-  flex-direction: column;
 }
 .lc-login-form input {
   width: 100%;
@@ -59,6 +57,8 @@
   outline: 1px solid black;
 }
 .lc-login-form h3 {
+  width: auto;
+  display: inline-block;
   margin-top: 40px;
   font-family: Montserrat;
   font-weight: 400;
@@ -76,4 +76,37 @@
   font-size: 18px;
   letter-spacing: 0.5px;
   font-weight: 600;
+}
+
+.lc-show-pass-wrap {
+  width: 50%;
+  height: 45px;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lc-show-pass-wrap input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  transform: translateX(calc(-50% + 7px));
+}
+
+.lc-show-pass-wrap span {
+  margin-left: 5px;
+  font-family: Montserrat;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.lc-err-msg {
+  display: inline-block;
+  color: #ff0000;
+  margin-left: 10px;
+  font-family: Oswald;
+  transform: translate(10px, -3px);
 }

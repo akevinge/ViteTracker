@@ -1,12 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./CreateAcc.css";
 import { Link, Redirect } from "react-router-dom";
 // import { UserContext } from "../UserContext";
 
 function CreateAcc() {
-  // const { loggedIn1, userId1 } = useContext(UserContext);
-  // const [userId, setUserId] = userId1;
-  // const [loggedIn, setLoggedIn] = loggedIn1;
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [pass2, setPass2] = useState("");
@@ -51,6 +48,7 @@ function CreateAcc() {
         });
     }
   };
+
   return (
     <>
       {valid ? <Redirect to="/your-tracker" /> : ""}

@@ -1,22 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./UserDashboard.css";
+import LoadingPage from "./LoadingPage";
+import AddAmazon from "./AddAmazon";
+import AmazonItem from "./AmazonItem";
+
 export const UserDashboard = () => {
-  let amazonList = (function (x = sessionStorage.getItem("amazon-list")) {
-    const x1 = JSON.parse(x);
-    return x1.amazonList;
-  })();
-  return (
-    <>
-      <div className="tracker-nav"></div>
-      <div className="userdash-wrap">
-        {amazonList.map((n) => (
-          <li>
-            <h3>{n.title}</h3>
-            <h5>{n.price}</h5>
-            <img src={`data:image/png;base64,${n.imgUrl}`} alt=""></img>
-          </li>
-        ))}
-      </div>
-    </>
-  );
+  const [amazonList, setAmazonList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const getList = () => {
+    const string = sessionStorage.getItem("amazon-list");
+    const json = JSON.parse(string);
+    setAmazonList(json["amazon-list"]);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getList();
+  }, []);
+
+  if (!loading && amazonList !== undefined) {
+    return (
+      <>
+        <div className="userdash-wrap">
+          <AddAmazon />
+          <ul className="userdash-list">
+            {amazonList.map((n) => (
+              <AmazonItem n={n} />
+            ))}
+          </ul>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <LoadingPage />
+      </>
+    );
+  }
 };

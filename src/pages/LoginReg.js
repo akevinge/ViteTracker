@@ -5,7 +5,7 @@ import MainTitle from "../components/MainTitle";
 function LoginReg({ toggleCreate }) {
   return (
     <div className="loginreg-container">
-      <MainTitle color="#5b03ff" />
+      <MainTitle />
       {toggleCreate ? <CreateAcc /> : <LoginCard />}
     </div>
   );
